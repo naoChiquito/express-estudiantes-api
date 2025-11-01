@@ -19,7 +19,12 @@ pipeline {
      }
      stage('Deploy') {
        steps {
-         sh 'echo "Ejecutando pruebas..."'
+        script {
+            echo "inciando despliegue"
+            sh "docker compose down"
+            sh "docker compose up -d"
+            echo "contenedor creado"   
+        }
        }
      }
   }
